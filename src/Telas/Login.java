@@ -6,6 +6,7 @@ package Telas;
 
 import Conexões.MySQL;
 import Objetos.Usuario;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,8 @@ public class Login extends javax.swing.JFrame {
     Usuario novoUsuario = new Usuario();
     public Login() {
         initComponents();
+            this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens//logo.png"))); // Define Icone
+
     }
 
     /**
@@ -53,7 +56,9 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo serviços gerais.png"))); // NOI18N
 
-        BtnLogin.setBackground(new java.awt.Color(248, 244, 235));
+        BtnLogin.setBackground(new java.awt.Color(204, 204, 255));
+        BtnLogin.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnLogin.setForeground(new java.awt.Color(0, 0, 0));
         BtnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icons8-entrar-16.png"))); // NOI18N
         BtnLogin.setText("LOGIN");
         BtnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -62,6 +67,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(204, 204, 255));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icons8-visível-16.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,7 +157,7 @@ public class Login extends javax.swing.JFrame {
                 
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Erro na conexão!");
+            JOptionPane.showMessageDialog(null, "Erro ao efetuar Login!");
         }finally{
             conectar.fechaBanco();
         }

@@ -4,6 +4,8 @@
  */
 package Telas;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author Gabriel
@@ -15,6 +17,8 @@ public class TelaInicial extends javax.swing.JFrame {
      */
     public TelaInicial() {
         initComponents();
+    this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens//logo.png"))); // Define Icone
+
     }
 
     /**
@@ -31,19 +35,25 @@ public class TelaInicial extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnCadUsuarioTela = new javax.swing.JButton();
         btnCadPrestadorTela = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        BtnEmpresa = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(248, 244, 235));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo serviços gerais.png"))); // NOI18N
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("BEM - VINDO");
 
+        btnCadUsuarioTela.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCadUsuarioTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icons8-usuário-16.png"))); // NOI18N
         btnCadUsuarioTela.setText("CADASTRAR USUARIO");
         btnCadUsuarioTela.addActionListener(new java.awt.event.ActionListener() {
@@ -52,6 +62,7 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
+        btnCadPrestadorTela.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btnCadPrestadorTela.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icons8-trabalhador-16.png"))); // NOI18N
         btnCadPrestadorTela.setText("CADASTRAR PRESTADOR");
         btnCadPrestadorTela.addActionListener(new java.awt.event.ActionListener() {
@@ -60,7 +71,14 @@ public class TelaInicial extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("jButton3");
+        BtnEmpresa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        BtnEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/icons8-ligar-empresa-filial-16.png"))); // NOI18N
+        BtnEmpresa.setText("CADASTRAR EMPRESA");
+        BtnEmpresa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnEmpresaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -70,15 +88,15 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(88, 88, 88)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnCadUsuarioTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCadPrestadorTela, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 84, Short.MAX_VALUE))))
+                            .addComponent(btnCadPrestadorTela, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BtnEmpresa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 42, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +108,7 @@ public class TelaInicial extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCadPrestadorTela, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BtnEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 58, Short.MAX_VALUE))
         );
 
@@ -120,6 +138,18 @@ public class TelaInicial extends javax.swing.JFrame {
         tela.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnCadPrestadorTelaActionPerformed
+
+    private void BtnEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnEmpresaActionPerformed
+        CadastroEmpresa tela = new CadastroEmpresa();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_BtnEmpresaActionPerformed
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        Alocação tela = new Alocação();
+        tela.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -157,9 +187,9 @@ public class TelaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtnEmpresa;
     private javax.swing.JButton btnCadPrestadorTela;
     private javax.swing.JButton btnCadUsuarioTela;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

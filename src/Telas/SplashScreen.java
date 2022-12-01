@@ -4,6 +4,8 @@
  */
 package Telas;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author Gabriel
@@ -15,6 +17,8 @@ public class SplashScreen extends javax.swing.JFrame {
      */
     public SplashScreen() {
         initComponents();
+            this.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/Imagens//logo.png"))); // Define Icone
+
         Login login = new Login();
         new Thread(){
             public void run(){
